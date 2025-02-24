@@ -9,7 +9,7 @@ the various needed functionality. The code for the front facing website found at
 
 This should be your 5 minute guide to getting the application running on your local machine and contributing code.
 
-### Requirement
+### Requirements
 
 You need to have the following installed:
 
@@ -25,9 +25,9 @@ Consult this [link](https://maven.apache.org/install.html) for more information 
 
 First a quick overview of how things stack up should be of help.
 
-The Yorubaname Website application is the backend portion of the yorubaname dictionary application, and it is built around individual modules that perform one functionality and that functionality only. For example we have `elastic-search` module for the search etc.
+The Yorubaname Website application is the backend portion of the yorubaname dictionary application, and it is built around individual modules that perform one functionality and that functionality only. For example, we have `elastic-search` module for the search etc.
 
-The `webapi-module` is built using these other modules and its own functionality is to expose the services the dictionary
+The `webapi-module` is built using these other modules and its functionality is to expose the services the dictionary
 application offers over a REST API.
 
 The `website module` is the front facing part of the dictionary. It is also built using the APIs exposed by the `webapi-module` 
@@ -61,8 +61,8 @@ intend to install/use MySQL.
 
 Note, since the Yoruba Language makes extensive use of diacritics, your MySQL install needs to be configured to 
 use UTF-8 in other to be able to handle the contents of the dictionary. If this is not done, the application won't 
-start, because the bootstrap process inserts names which use diacritics into the database, and if the encoding is 
-not right the insertiong would fail. In such a case you would see an error similar to:
+start, because the bootstrap process inserts names, which use diacritics, into the database, and if the encoding is 
+not right the insertion would fail. In such a case you would see an error similar to:
 
 ```
 Caused by: java.sql.SQLException: Incorrect string value: '\xE1\xBB\x8D\xCD\x81l...' for column 'extended_meaning' at row 1
@@ -77,8 +77,7 @@ character-set-server=utf8
 collation-server=utf8_general_c
 ```
 
-You can consult the [Configuring the Character Set and Collation for Applications](https://dev.mysql
-.com/doc/refman/en/charset-applications.html) section from the MySQL documentation for more details.
+You can consult the [Configuring the Character Set and Collation for Applications](https://dev.mysql.com/doc/refman/8.4/en/charset-applications.html) section from the MySQL documentation for more details.
 
 
 First create a MySQL database, with the following details:
@@ -143,7 +142,7 @@ The search API is defined in the `searchapi` module. We currently have two imple
 
 The `jpa-search-module` module is used in the `website` module which represents the website running at www.yorubaname.com 
 
-If you want to use `elasticsearch` module then remove the following section in the pom.xml for `website` module:
+If you want to use `elasticsearch` module then replace the following section in the pom.xml for `website` module:
 
 ```
     <dependency>
@@ -170,7 +169,7 @@ The `elasticsearch-module` needs to be configured. This is explained in the next
 The ElasticSearch module does not require the installation of ElasticSearch as it will run with an embedded ElasticSearch instance: 
 the only thing required is for the appropriate configurations to be provided which can be done in the application properties.
 
-Different aspect of the embedded ElasticSearch be configured via application properties. The available configuration keys
+Different aspect of the embedded ElasticSearch can be configured via application properties. The available configuration keys
 and their defaults are
 
 * es.clustername=yoruba_name_dictionary
@@ -190,7 +189,7 @@ The documentation for the API endpoints can be accessed by running the applicati
 
 ### Running the Yorubaname Dashboard app
 
-The Yorubaname Dashboard application powers the admin portal that can be used to manage entries in the yorubaname dictionary. It 
+The Yorubaname Dashboard application powers the admin portal that is used to manage entries in the yorubaname dictionary. It 
 is a standalone application with a separate codebase.
 
 The instructions on how to run the Yorubaname Dashboard Application can be found here https://github.com/Yorubaname/yorubaname-dashboard
